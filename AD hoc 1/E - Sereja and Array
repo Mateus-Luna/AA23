@@ -1,0 +1,24 @@
+def perform_operations(array, operations):
+    assignment_count = 0
+    for operation in operations:
+        t = operation[0]
+        if t == 1:
+            vi, xi = operation[1], operation[2]
+            array[vi - 1] = xi - assignment_count
+        elif t == 2:
+            yi = operation[1]
+            assignment_count += yi
+        else:
+            qi = operation[1]
+            print(array[qi - 1] + assignment_count)
+
+
+n, m = map(int, input().split())
+array = list(map(int, input().split()))
+
+operations = []
+for _ in range(m):
+    operation = list(map(int, input().split()))
+    operations.append(operation)
+
+perform_operations(array, operations)
