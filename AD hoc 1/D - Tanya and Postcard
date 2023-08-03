@@ -1,0 +1,33 @@
+def count_letters(s):
+    letter_count = {}
+    for letter in s:
+        letter_count[letter] = letter_count.get(letter, 0) + 1
+    return letter_count
+
+s = input().strip()  
+t = input().strip()  
+s_count = count_letters(s)
+t_count = count_letters(t)
+yay_count = 0
+whoops_count = 0
+for letter in s:
+    if s_count[letter] > 0 and t_count.get(letter, 0) > 0:
+        yay_count += 1
+        s_count[letter] -= 1
+        t_count[letter] -= 1
+
+for letter in s:
+    if s_count[letter] > 0:
+        if letter.islower():
+            same_letter = letter.upper()
+        else:
+            same_letter = letter.lower()
+
+        if t_count.get(same_letter, 0) > 0:
+            whoops_count += 1
+            s_count[letter] -= 1
+            t_count[same_letter] -= 1
+
+print(yay_count, whoops_count)
+
+

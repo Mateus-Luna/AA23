@@ -1,0 +1,12 @@
+def find_winner(n, m):
+    total_sticks = min(n,m)
+    if total_sticks % 2 == 0:
+        return "Malvika"
+    else:
+        return "Akshat"
+
+n, m = map(int, input().split())
+
+winner = find_winner(n, m)
+
+print(winner)
